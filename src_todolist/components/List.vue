@@ -6,8 +6,8 @@
       :todo="todo"
       :updateOne="updateOne"
       :index="index"
-      :deleteOne="deleteOne"
     ></Item>
+    <!-- :deleteOne="deleteOne" -->
   </ul>
 </template>
 
@@ -18,7 +18,7 @@ export default {
   components: {
     Item,
   },
-  props: ["todos", "updateOne",'deleteOne'],
+  props: ["todos", "updateOne"],
 };
 </script>
 

@@ -38,7 +38,6 @@ export default {
           prev += 1
         }
         return prev
-
       },0)
 
       //功能： 统计数组当中的符合条件的结果（数字或者其它类型）

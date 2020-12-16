@@ -18,6 +18,7 @@
 </template>
 
 <script>
+import PubSub from 'pubsub-js'
 export default {
   name: "",
   props:{
@@ -29,7 +30,7 @@ export default {
       required:true
     },
     updateOne:Function,
-    deleteOne:Function
+    // deleteOne:Function
   },
 
   data(){
@@ -39,10 +40,18 @@ export default {
   },
   methods:{
     updateO(){
-      this.updateOne(this.index)
+      //props
+      // this.updateOne(this.index)
+
+      //消息的发布
+      PubSub.publish('heihei',this.index)
     },
     deleteO(){
-      this.deleteOne(this.index)
+      //props
+      // this.deleteOne(this.index)
+
+      //全局时间总线
+      this.$bus.$emit('deleteOne',this.index)
     }
   }
 
