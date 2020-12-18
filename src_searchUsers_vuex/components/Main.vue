@@ -22,12 +22,9 @@
 import { mapState } from 'vuex';
 export default {
   name: "",
-
   computed:{
     ...mapState(['isFirst','isLoading','errMsg','users'])
   }
-
-
 
   // data() {
   //   return {

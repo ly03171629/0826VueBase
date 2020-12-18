@@ -1,39 +1,72 @@
 <template>
-  <section class="jumbotron">
-    <h3 class="jumbotron-heading">Search Github Users</h3>
-    <div>
-      <input type="text" placeholder="enter the name you search" v-model="keyword" />
-      <button @click="search">Search</button>
-    </div>
-  </section>
+  <div class="todo-header">
+    <input type="text" placeholder="请输入你的任务名称，按回车键确认" v-model="content" @keyup.enter="addT" />
+  </div>
 </template>
 
 <script>
 export default {
   name: "",
+  // props:{
+  //   //props的第三种写法 也是对象写法，只是比第二种对象写法更加严格
+  //   // addTodo:Function, 第二种写法只是限定了传递过来属性值的类型
+
+
+  //   addTodo:{
+  //     //第三种，这是一个配置对象，它可以限定属性值的更多
+  //     type:Function,
+  //     required:true
+  //     // type:Number,
+  //     // required:true,  //代表必须传
+  //     // default:10  //默认值为10 不传的话默认值就是10
+  //   }
+  // },
   data(){
     return {
-      keyword:''
+      content:''
     }
   },
   methods:{
-    search(){
-      let keyword = this.keyword
-      if(keyword.trim()){
-        // this.$bus.$emit('searchAjax',keyword)
-        // dispatch在触发的时候本质就是在调用的actions当中的方法，可以传递参数吗，但是只能传递一个参数
-        // 如果要传递多个，请把多个参数封装为对象再传
-        // {keyword,name:'zly'}
-        this.$store.dispatch('searchAjax',keyword)
+    addT(){
+      let content = this.content
+      // let {content} = this
+      if(content.trim()){
+        let id = Date.now()
+        let isOver = false
+        let obj = {
+          id,
+          content,
+          isOver
+        }
+
+      // props 组件通信传递函数数据让子组件调用
+      // this.addTodo(obj)
+      this.$emit('addTodo',obj)
       }else{
-        alert('关键字必须合法')
+        alert('请输入合法数据')
       }
 
-      this.keyword = ''
+      this.content = ''
     }
   }
 };
 </script>
 
 <style scoped>
+/*header*/
+.todo-header input {
+  width: 560px;
+  height: 28px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 4px 7px;
+}
+
+.todo-header input:focus {
+  outline: none;
+  border-color: rgba(82, 168, 236, 0.8);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(82, 168, 236, 0.6);
+}
 </style>

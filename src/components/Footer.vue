@@ -15,11 +15,12 @@ export default {
   props:{
     todos:Array,
     updateAll:Function,
-    deleteAll:Function
+    // deleteAll:Function
   },
   methods:{
     deleteA(){
-      this.deleteAll()
+      // this.deleteAll()
+      this.$bus.$emit('deleteAll')
     }
   },
     
