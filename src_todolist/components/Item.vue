@@ -49,8 +49,7 @@ export default {
     deleteO(){
       //props
       // this.deleteOne(this.index)
-
-      //全局时间总线
+      //全局事件总线
       this.$bus.$emit('deleteOne',this.index)
     }
   }

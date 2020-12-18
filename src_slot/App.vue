@@ -31,11 +31,13 @@
     -->
     <ScopedChild :todos="todos">
       <!-- <template slot-scope="scopeProps"> -->
-      <template slot-scope="{todo}">
+      <template slot-scope="{todo,index}">
         <!-- <span v-if="scopeProps.todo.isOver" style="color:hotpink">√ {{scopeProps.todo.content}}</span> -->
         <span v-if="todo.isOver" style="color:hotpink">√ {{todo.content}}</span>
       </template>
     </ScopedChild>
+
+    
   </div>
 </template>
 

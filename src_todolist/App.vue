@@ -90,6 +90,7 @@ export default {
     updateOne(msg,index){
       this.todos[index].isOver = !this.todos[index].isOver
     },
+    
     deleteOne(index){
       this.todos.splice(index,1)
     },
