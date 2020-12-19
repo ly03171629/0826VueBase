@@ -24,6 +24,7 @@ module.exports = {
           pathRewrite: {"^/api" : ""},    //4000/users/info
           changeOrigin:true   //不管改变哪个跨域的条件都会转发
       }
+
     }
   }
 }

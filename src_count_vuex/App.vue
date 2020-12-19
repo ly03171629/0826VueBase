@@ -29,6 +29,8 @@ export default {
     // }
   },
 
+  // computed:mapState(["count"])
+
   // methods:mapActions(['increment','decrement','incrementIfOdd','incrementAsync'])
 
   methods: {
@@ -59,20 +61,23 @@ export default {
     // ...mapActions(['increment','decrement','incrementIfOdd','incrementAsync'])
     //名字不一样的必须使用对象
     ...mapActions(["decrement", "incrementIfOdd", "incrementAsync"]),
+    
     ...mapActions({
       increment() {
         // this.count++
         //dispatch 和 emit 都是触发分发的意思  分发触发actions当中对应的方法
         this.$store.dispatch("iincrement");
       },
+
     }),
 
     //最原始的写法
-    // increment(){
-    //   // this.count++
-    //   //dispatch 和 emit 都是触发分发的意思  分发触发actions当中对应的方法
-    //   this.$store.dispatch('increment')
-    // },
+    increment(){
+      // this.count++
+      //dispatch 和 emit 都是触发分发的意思  分发触发actions当中对应的方法
+      this.$store.dispatch('increment')
+      // this.$store.commit('INCREMENT')
+    },
     // decrement(){
     //   // this.count--
     //   this.$store.dispatch('decrement')

@@ -23,6 +23,7 @@ import { mapState } from 'vuex';
 export default {
   name: "",
   computed:{
+    //从vuex当中把数据拿到vue当中
     ...mapState(['isFirst','isLoading','errMsg','users'])
   }
 

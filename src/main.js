@@ -1,15 +1,12 @@
 import Vue from 'vue'
 import App from '@/App'
+import router from '@/router'
+
 
 Vue.config.productionTip = false
 
 new Vue({
-  beforeCreate(){
-    Vue.prototype.$bus = this  //配置总线  就是把vm挂到Vue的原型上，让所有的组件对象都能找到它，进而调用$on和$emit
-  },
   el:'#app',
-  render: h=>h(App)
-  // render:function(h){
-  //   return h(App)
-  // }
+  render: h=>h(App),
+  router //所有的组件当中都可以通过this.$router拿到路由器对象，还可以通过this.$route拿到当前路由对象
 })
